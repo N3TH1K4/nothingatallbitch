@@ -252,7 +252,7 @@ async def start_gett(_,message:Message):
                 print(wfname)
                 waid = id_choose(randcho)
                 waifuid[c] = waid
-                await app.send_photo(c,randcho,caption=cap)
+                await app.send_photo(c,randcho,caption="A cute waifu is here use /hunt __name__ to collect her!")
             try:
                 msg = message.text
                 mess = msg.lower()
@@ -263,8 +263,8 @@ async def start_gett(_,message:Message):
                 cap = captc[c]
                 waid = waifuid[c]
                 if "/hunt" and waifun in mess:
+                    await choosing_lvl(user,cap,waid)
                     await message.reply(f"You Got **{cap}** From Arknights")
-                    #await choosing_lvl(user,cap,waid)
                     waif[c] = "None"
                     captc[c] = "None"
                     waifuid[c] = "None"
@@ -278,7 +278,8 @@ async def start_gett(_,message:Message):
             except:
                 pass
         if numb == 120:
-            await app.send_message(c,"waifu ran")
+            cap = captc[c]
+            await app.send_message(c,f"waifu ran her name is **{cap}**")
             count[c]= f'0'
             return    
         #count[c]= f'{num}'
