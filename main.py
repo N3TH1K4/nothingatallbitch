@@ -74,7 +74,7 @@ Harem Of **{usrna}**
     await app.send_photo(c,photo = imgid,caption=txt)
                 
                 
-@app.on_message(filters.command("trade"))
+@app.on_message(filters.command("trade")&filters.group)
 async def waifu_trade(client, message: Message):
     search_str = message.text.split(" ")
     if len(search_str) == 1:
@@ -230,7 +230,7 @@ count = {}
 waif = {}
 captc = {}
 waifuid = {}
-@app.on_message()
+@app.on_message(filters.group)
 async def start_gett(_,message:Message):
     c = message.chat.id
     user = message.from_user.id
